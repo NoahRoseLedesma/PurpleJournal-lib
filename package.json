@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Library For Purple Journal application",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^13.1.8",
+    "aylien_textapi": "^0.7.0",
+    "cors": "^2.8.5"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
@@ -18,7 +22,8 @@
     "type-check:watch": "npm run type-check -- --watch",
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline"
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "test-env": "node testing/app.js"
   },
   "author": "",
   "license": "ISC"
