@@ -1,5 +1,22 @@
 <html>
     <head>
+        <script>
+            //God forbidden code
+            old_fetch = fetch
+            function new_fetch(url, other) {
+                console.log(url, other)
+                other.mode = "no-cors"
+
+                if( url.indexOf("https://api.aylien.com/api/v1/") == 0 ) {
+                    console.log("y")
+                    other.headers.push(["X-AYLIEN-TextAPI-Application-Key", "bffdab09177b1c067670cbf31e705be1"])
+                    other.headers.push(["X-AYLIEN-TextAPI-Application-ID", "334c2982"])
+                }
+                return old_fetch(url, other)
+            }
+
+            fetch = new_fetch    
+        </script>
         <script src="bundle.js"></script>
     </head>
 </html>
